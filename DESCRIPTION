@@ -1,0 +1,26 @@
+Package: HEP
+Type: Package
+Title: Bayesian Non-Parametric clustering of Non-Aligned Time Series
+Version: 1.0
+Date: 2024-02-15
+License: GPL (>= 3)
+LinkingTo: Rcpp, RcppArmadillo, RcppDist
+Depends: R (>= 3.0), Rcpp, RcppArmadillo, RcppDist
+Authors@R: c(person("Giovanni", "Poli", , "giovanni.poli@unifi.it", role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "1234-1234-1234-1234")),
+           person("Beatrice", "Cantoni", , "mail.bella@NONunifi.it", role = "aut",
+           comment = c(ORCID = "1234-1234-1234-1233")))
+Description: The HEP package allows for clustering binary time series data in R.
+  It provides a comprehensive set of functions and algorithms tailored specifically for the 
+  uniquechallenges posed by binary time series datasets.
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Encoding: UTF-8
+NeedsCompilation: yes
+Packaged: 2024-02-26 17:18:36 UTC; BeatriceCantoni
+Author: Giovanni Poli [aut, cre, cph] (<https://orcid.org/1234-1234-1234-1234>),
+  Beatrice Cantoni [aut] (<https://orcid.org/1234-1234-1234-1233>)
+Maintainer: Giovanni Poli <giovanni.poli@unifi.it>
+Imports: 
+    mvtnorm,
+    truncnorm
