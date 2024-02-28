@@ -24,3 +24,6 @@ Maintainer: Giovanni Poli <giovanni.poli@unifi.it>
 Imports: 
     mvtnorm,
     truncnorm
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

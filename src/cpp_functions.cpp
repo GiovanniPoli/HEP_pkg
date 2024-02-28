@@ -60,10 +60,9 @@ arma::uvec rcpp_index_gen(const int n) {
   return(ret);
 }
 
-arma::uvec rcpp_sample(const int n,
-                           const int size,
-                           const arma::colvec prob) {
-   arma::uvec x   = rcpp_index_gen(n) ;
+arma::uvec rcpp_sample( const arma::uvec x,
+                        const int size,
+                        const arma::colvec prob) {
    arma::uvec ret = RcppArmadillo::sample(x, size, true, prob);
    return(ret);
 }
@@ -85,6 +84,7 @@ arma::cube conditioned_C_RaoBlackwellAuxSMC_witcovs_andNA( const Rcpp::IntegerVe
   // Const.
   const int p  = mu0.n_elem  ;
   const int TT = y.length()  ;
+  arma::uvec x_order   = rcpp_index_gen(nSim) ;
   
   const arma::mat Gt = G.t() ;
   const arma::colvec LinerPred_noEv = arma::as_scalar( x.t() * delta ) + Z * gamma ;
@@ -144,7 +144,7 @@ for(int tt = 0; tt < TT; ++tt) {
      log_ws_IS_it = log_ws_IS_it - arma::max(log_ws_IS_it);
      
      // Resample step (y_{it} = 1)
-     order_rss = rcpp_sample(nSim, nSim, arma::exp(log_ws_IS_it) );
+     order_rss = rcpp_sample(x_order, nSim, arma::exp(log_ws_IS_it) );
      yast_P    = yast_P(order_rss);
      xhat_P    = xhat_F.cols(order_rss);
      
@@ -180,7 +180,7 @@ for(int tt = 0; tt < TT; ++tt) {
      log_ws_IS_it = log_ws_IS_it - arma::max(log_ws_IS_it);
      
      // Resemple step (y_{it} = 0)
-     order_rss = rcpp_sample(nSim, nSim, arma::exp(log_ws_IS_it));
+     order_rss = rcpp_sample(x_order, nSim, arma::exp(log_ws_IS_it));
      yast_P    = yast_P(order_rss);
      xhat_P    = xhat_F.cols(order_rss);
      // Update from [-Inf, 0] truncated normal
