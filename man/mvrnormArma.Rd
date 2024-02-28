@@ -5,14 +5,16 @@
 \alias{mvrnormArma1}
 \title{Samples from mutivariate normal using Rcpp and Armadillo}
 \usage{
+mvrnormArma(n, mu, sigma)
+
 mvrnormArma1(mu, sigma)
 }
 \arguments{
+\item{n}{number of samples .}
+
 \item{mu}{Mean vector.}
 
 \item{sigma}{Covariance matrix vector.}
-
-\item{n}{number of samples .}
 }
 \value{
 Random samples

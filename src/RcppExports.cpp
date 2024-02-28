@@ -36,6 +36,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rcpp_sample
+arma::uvec rcpp_sample(const arma::uvec vec, const int size, const arma::colvec prob);
+RcppExport SEXP _HEP_rcpp_sample(SEXP vecSEXP, SEXP sizeSEXP, SEXP probSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::uvec >::type vec(vecSEXP);
+    Rcpp::traits::input_parameter< const int >::type size(sizeSEXP);
+    Rcpp::traits::input_parameter< const arma::colvec >::type prob(probSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_sample(vec, size, prob));
+    return rcpp_result_gen;
+END_RCPP
+}
 // conditioned_C_RaoBlackwellAuxSMC_witcovs_andNA
 arma::cube conditioned_C_RaoBlackwellAuxSMC_witcovs_andNA(const Rcpp::IntegerVector y, const arma::colvec delta, const arma::colvec gamma, const arma::colvec x, const arma::mat Z, const arma::mat matFF, const arma::mat G, const arma::colvec mu0, const arma::mat Sigma0, const arma::mat SigmaEps, const int nSim, const int seed);
 RcppExport SEXP _HEP_conditioned_C_RaoBlackwellAuxSMC_witcovs_andNA(SEXP ySEXP, SEXP deltaSEXP, SEXP gammaSEXP, SEXP xSEXP, SEXP ZSEXP, SEXP matFFSEXP, SEXP GSEXP, SEXP mu0SEXP, SEXP Sigma0SEXP, SEXP SigmaEpsSEXP, SEXP nSimSEXP, SEXP seedSEXP) {
@@ -62,6 +75,7 @@ END_RCPP
 static const R_CallMethodDef CallEntries[] = {
     {"_HEP_mvrnormArma", (DL_FUNC) &_HEP_mvrnormArma, 3},
     {"_HEP_mvrnormArma1", (DL_FUNC) &_HEP_mvrnormArma1, 2},
+    {"_HEP_rcpp_sample", (DL_FUNC) &_HEP_rcpp_sample, 3},
     {"_HEP_conditioned_C_RaoBlackwellAuxSMC_witcovs_andNA", (DL_FUNC) &_HEP_conditioned_C_RaoBlackwellAuxSMC_witcovs_andNA, 12},
     {NULL, NULL, 0}
 };

@@ -1,3 +1,4 @@
+#' @rdname conditioned_C_RaoBlackwellAuxSMC_witcovs_andNA
 RaoBlackwellAuxSMC_witcovs_andNA = function(y, delta,
                                             gamma, x, Z,
                                             matFF, mu0,
