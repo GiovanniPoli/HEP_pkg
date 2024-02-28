@@ -18,6 +18,8 @@ y = c(rbinom(365,1,  .1), rbinom(365,1, .01)) ; y[180:200] = 1
 settings$y = y
 remove(y,G)
 
+set.seed(1)
+
 A = HEP::conditioned_C_RaoBlackwellAuxSMC_witcovs_andNA(y    = settings$y,
                                                    delta     = settings$delta,
                                                    gamma     = settings$gamma,
@@ -28,13 +30,27 @@ A = HEP::conditioned_C_RaoBlackwellAuxSMC_witcovs_andNA(y    = settings$y,
                                                    Sigma0    = settings$Sigma0, 
                                                    SigmaEps  = settings$SigmaEps, 
                                                    G         = settings$G, 
-                                                   seed = 1,
+                                                   seed = 1 {},
                                                    nSim = 100)
   
 
+set.seed(1)
+
+B = HEP::conditioned_C_RaoBlackwellAuxSMC_witcovs_andNA(y    = settings$y,
+                                                        delta     = settings$delta,
+                                                        gamma     = settings$gamma,
+                                                        x         = settings$x ,
+                                                        Z         = settings$Z,
+                                                        matFF     = settings$matFF,
+                                                        mu0       = settings$mu0,
+                                                        Sigma0    = settings$Sigma0, 
+                                                        SigmaEps  = settings$SigmaEps, 
+                                                        G         = settings$G, 
+                                                        seed = 1,
+                                                        nSim = 100)
 
 
 
 
 test_that("Method return numerical values", {expect_type( A ,"double")})
-
+test_that("Rcpp Seed works", {expect_true(identical(A,B))} )
