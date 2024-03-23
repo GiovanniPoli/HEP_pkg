@@ -30,7 +30,7 @@ A = HEP::conditioned_C_RaoBlackwellAuxSMC_witcovs_andNA(y    = settings$y,
                                                    Sigma0    = settings$Sigma0, 
                                                    SigmaEps  = settings$SigmaEps, 
                                                    G         = settings$G, 
-                                                   seed = 1 {},
+                                                   seed = 1,
                                                    nSim = 100)
   
 
@@ -52,5 +52,5 @@ B = HEP::conditioned_C_RaoBlackwellAuxSMC_witcovs_andNA(y    = settings$y,
 
 
 
-test_that("Method return numerical values", {expect_type( A ,"double")})
-test_that("Rcpp Seed works", {expect_true(identical(A,B))} )
+test_that("Method return numerical values:", {expect_type( A ,"double")})
+test_that("Rcpp Seed:", {expect_true(identical(A,B))} )

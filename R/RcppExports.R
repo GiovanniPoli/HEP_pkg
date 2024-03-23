@@ -36,6 +36,10 @@ mvrnormArma <- function(n, mu, sigma) {
     .Call(`_HEP_mvrnormArma`, n, mu, sigma)
 }
 
+cpp_rdirichletArma1 <- function(parameters) {
+    .Call(`_HEP_cpp_rdirichletArma1`, parameters)
+}
+
 #' @rdname mvrnormArma
 mvrnormArma1 <- function(mu, sigma) {
     .Call(`_HEP_mvrnormArma1`, mu, sigma)
@@ -47,5 +51,37 @@ rcpp_sample <- function(vec, size, prob) {
 
 conditioned_C_RaoBlackwellAuxSMC_witcovs_andNA <- function(y, delta, gamma, x, Z, matFF, G, mu0, Sigma0, SigmaEps, nSim = 100L, seed = 1L) {
     .Call(`_HEP_conditioned_C_RaoBlackwellAuxSMC_witcovs_andNA`, y, delta, gamma, x, Z, matFF, G, mu0, Sigma0, SigmaEps, nSim, seed)
+}
+
+get_Ri_rcpp <- function(gamma, Omega) {
+    .Call(`_HEP_get_Ri_rcpp`, gamma, Omega)
+}
+
+SUN_gibbs_sampler <- function(data, starting_values, priors, proposal_variance_delta, proposal_variace_gamma_and_omega, nSim, sample, thinning, burn) {
+    .Call(`_HEP_SUN_gibbs_sampler`, data, starting_values, priors, proposal_variance_delta, proposal_variace_gamma_and_omega, nSim, sample, thinning, burn)
+}
+
+rcpp_remove_element <- function(vector, position) {
+    .Call(`_HEP_rcpp_remove_element`, vector, position)
+}
+
+rcpp_remove_row <- function(matrix, row) {
+    .Call(`_HEP_rcpp_remove_row`, matrix, row)
+}
+
+rcpp_arma_table <- function(x) {
+    .Call(`_HEP_rcpp_arma_table`, x)
+}
+
+test_function <- function(m, row, ivector) {
+    .Call(`_HEP_test_function`, m, row, ivector)
+}
+
+rcpp_correct_labels <- function(x, target) {
+    .Call(`_HEP_rcpp_correct_labels`, x, target)
+}
+
+rcpp_update_rho_and_xi <- function(state, gTable, prior) {
+    .Call(`_HEP_rcpp_update_rho_and_xi`, state, gTable, prior)
 }
 

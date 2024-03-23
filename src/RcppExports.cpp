@@ -24,6 +24,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// cpp_rdirichletArma1
+arma::vec cpp_rdirichletArma1(arma::colvec parameters);
+RcppExport SEXP _HEP_cpp_rdirichletArma1(SEXP parametersSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::colvec >::type parameters(parametersSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_rdirichletArma1(parameters));
+    return rcpp_result_gen;
+END_RCPP
+}
 // mvrnormArma1
 arma::colvec mvrnormArma1(arma::vec mu, arma::mat sigma);
 RcppExport SEXP _HEP_mvrnormArma1(SEXP muSEXP, SEXP sigmaSEXP) {
@@ -71,12 +82,125 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// get_Ri_rcpp
+int get_Ri_rcpp(arma::vec gamma, arma::cube Omega);
+RcppExport SEXP _HEP_get_Ri_rcpp(SEXP gammaSEXP, SEXP OmegaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type gamma(gammaSEXP);
+    Rcpp::traits::input_parameter< arma::cube >::type Omega(OmegaSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_Ri_rcpp(gamma, Omega));
+    return rcpp_result_gen;
+END_RCPP
+}
+// SUN_gibbs_sampler
+Rcpp::List SUN_gibbs_sampler(Rcpp::List data, Rcpp::List starting_values, Rcpp::List priors, double proposal_variance_delta, double proposal_variace_gamma_and_omega, int nSim, int sample, int thinning, int burn);
+RcppExport SEXP _HEP_SUN_gibbs_sampler(SEXP dataSEXP, SEXP starting_valuesSEXP, SEXP priorsSEXP, SEXP proposal_variance_deltaSEXP, SEXP proposal_variace_gamma_and_omegaSEXP, SEXP nSimSEXP, SEXP sampleSEXP, SEXP thinningSEXP, SEXP burnSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::List >::type data(dataSEXP);
+    Rcpp::traits::input_parameter< Rcpp::List >::type starting_values(starting_valuesSEXP);
+    Rcpp::traits::input_parameter< Rcpp::List >::type priors(priorsSEXP);
+    Rcpp::traits::input_parameter< double >::type proposal_variance_delta(proposal_variance_deltaSEXP);
+    Rcpp::traits::input_parameter< double >::type proposal_variace_gamma_and_omega(proposal_variace_gamma_and_omegaSEXP);
+    Rcpp::traits::input_parameter< int >::type nSim(nSimSEXP);
+    Rcpp::traits::input_parameter< int >::type sample(sampleSEXP);
+    Rcpp::traits::input_parameter< int >::type thinning(thinningSEXP);
+    Rcpp::traits::input_parameter< int >::type burn(burnSEXP);
+    rcpp_result_gen = Rcpp::wrap(SUN_gibbs_sampler(data, starting_values, priors, proposal_variance_delta, proposal_variace_gamma_and_omega, nSim, sample, thinning, burn));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_remove_element
+arma::ivec rcpp_remove_element(arma::ivec vector, int position);
+RcppExport SEXP _HEP_rcpp_remove_element(SEXP vectorSEXP, SEXP positionSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::ivec >::type vector(vectorSEXP);
+    Rcpp::traits::input_parameter< int >::type position(positionSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_remove_element(vector, position));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_remove_row
+arma::mat rcpp_remove_row(arma::mat matrix, int row);
+RcppExport SEXP _HEP_rcpp_remove_row(SEXP matrixSEXP, SEXP rowSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type matrix(matrixSEXP);
+    Rcpp::traits::input_parameter< int >::type row(rowSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_remove_row(matrix, row));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_arma_table
+arma::ivec rcpp_arma_table(NumericVector x);
+RcppExport SEXP _HEP_rcpp_arma_table(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_arma_table(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// test_function
+Rcpp::List test_function(arma::mat m, arma::vec row, arma::ivec ivector);
+RcppExport SEXP _HEP_test_function(SEXP mSEXP, SEXP rowSEXP, SEXP ivectorSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type m(mSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type row(rowSEXP);
+    Rcpp::traits::input_parameter< arma::ivec >::type ivector(ivectorSEXP);
+    rcpp_result_gen = Rcpp::wrap(test_function(m, row, ivector));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_correct_labels
+arma::ivec rcpp_correct_labels(arma::ivec x, int target);
+RcppExport SEXP _HEP_rcpp_correct_labels(SEXP xSEXP, SEXP targetSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::ivec >::type x(xSEXP);
+    Rcpp::traits::input_parameter< int >::type target(targetSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_correct_labels(x, target));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_update_rho_and_xi
+Rcpp::List rcpp_update_rho_and_xi(Rcpp::List state, arma::ivec gTable, Rcpp::List prior);
+RcppExport SEXP _HEP_rcpp_update_rho_and_xi(SEXP stateSEXP, SEXP gTableSEXP, SEXP priorSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::List >::type state(stateSEXP);
+    Rcpp::traits::input_parameter< arma::ivec >::type gTable(gTableSEXP);
+    Rcpp::traits::input_parameter< Rcpp::List >::type prior(priorSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_update_rho_and_xi(state, gTable, prior));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_HEP_mvrnormArma", (DL_FUNC) &_HEP_mvrnormArma, 3},
+    {"_HEP_cpp_rdirichletArma1", (DL_FUNC) &_HEP_cpp_rdirichletArma1, 1},
     {"_HEP_mvrnormArma1", (DL_FUNC) &_HEP_mvrnormArma1, 2},
     {"_HEP_rcpp_sample", (DL_FUNC) &_HEP_rcpp_sample, 3},
     {"_HEP_conditioned_C_RaoBlackwellAuxSMC_witcovs_andNA", (DL_FUNC) &_HEP_conditioned_C_RaoBlackwellAuxSMC_witcovs_andNA, 12},
+    {"_HEP_get_Ri_rcpp", (DL_FUNC) &_HEP_get_Ri_rcpp, 2},
+    {"_HEP_SUN_gibbs_sampler", (DL_FUNC) &_HEP_SUN_gibbs_sampler, 9},
+    {"_HEP_rcpp_remove_element", (DL_FUNC) &_HEP_rcpp_remove_element, 2},
+    {"_HEP_rcpp_remove_row", (DL_FUNC) &_HEP_rcpp_remove_row, 2},
+    {"_HEP_rcpp_arma_table", (DL_FUNC) &_HEP_rcpp_arma_table, 1},
+    {"_HEP_test_function", (DL_FUNC) &_HEP_test_function, 3},
+    {"_HEP_rcpp_correct_labels", (DL_FUNC) &_HEP_rcpp_correct_labels, 2},
+    {"_HEP_rcpp_update_rho_and_xi", (DL_FUNC) &_HEP_rcpp_update_rho_and_xi, 3},
     {NULL, NULL, 0}
 };
 
